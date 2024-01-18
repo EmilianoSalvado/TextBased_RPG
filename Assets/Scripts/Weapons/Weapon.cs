@@ -5,7 +5,6 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected string _name;
     [SerializeField] protected AttackType _attackType;
     public AttackType AttackType { get { return _attackType; } }
-    [SerializeField] protected AttackEffect _attackEffect;
     [SerializeField] protected Class _strongClass;
     [SerializeField] protected Class _weakClass;
     [SerializeField][Range(0f,1f)] protected float _effectChance;

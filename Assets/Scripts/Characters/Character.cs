@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour
@@ -13,6 +14,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] Armor _armor;
     public Armor Armor { get { return _armor; } }
     bool _skipTurn;
+    Action<Character> _stateEffectMethod;
     public void TakeDamage(float dmg)
     {
         _life -= dmg;
@@ -22,6 +24,16 @@ public abstract class Character : MonoBehaviour
     public void SkipTurn()
     {
         _skipTurn = true;
+    }
+
+    public void StateEffect(Action<Character> stateEffectMethod)
+    {
+        _stateEffectMethod = stateEffectMethod;
+    }
+
+    public void StateEffectTrigger()
+    {
+        _stateEffectMethod(this);
     }
 
     public abstract void Die();

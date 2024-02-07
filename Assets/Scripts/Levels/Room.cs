@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] Room _northRoom;
-    [SerializeField] Room _westRoom;
-    [SerializeField] Room _southRoom;
-    [SerializeField] Room _eastRoom;
-    Dictionary<Direction, Room> _adyacentRooms = new Dictionary<Direction, Room>();
     Dictionary<Direction, bool> _directionsAvailable = new Dictionary<Direction, bool>();
     public Dictionary<Direction, bool> DirectionsAvailable {  get { return _directionsAvailable; } }
 
-    private void Start()
+    public void SetDirectionsAvailable(bool north, bool west, bool south, bool east)
     {
-        _adyacentRooms.Add(Direction.North, _northRoom);
-        _adyacentRooms.Add(Direction.West, _westRoom);
-        _adyacentRooms.Add(Direction.South, _southRoom);
-        _adyacentRooms.Add(Direction.East, _eastRoom);
+        _directionsAvailable.Clear();
+        _directionsAvailable.Add(Direction.North, north);
+        _directionsAvailable.Add(Direction.West, west);
+        _directionsAvailable.Add(Direction.South, south);
+        _directionsAvailable.Add(Direction.East, east);
     }
 }

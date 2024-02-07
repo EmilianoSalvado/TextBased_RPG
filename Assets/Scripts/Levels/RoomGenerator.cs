@@ -9,20 +9,8 @@ public class RoomGenerator : MonoBehaviour
 
     }
 
-    bool PossibleDeadEnd(Room previous, Direction comingFrom)
-    {
-        var count = 0;
-
-        foreach (var dirNRoom in previous.DirectionsAvailable)
-        {
-            if (dirNRoom.Key == comingFrom || !dirNRoom.Value)
-                continue;
-
-            count++; 
-        }
-        if (count > 1)
-            return true;
-
-        return false;
-    }
+    //bool PossibleDeadEnd(Room previous, Direction comingFrom)
+    //{
+        
+    //}
 }

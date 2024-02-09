@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Atlas : MonoBehaviour
 {
-    List<Room> _roomsExplored = new List<Room>();
+    Dictionary<int[],Room> _roomsExplored = new Dictionary<int[], Room>();
 
     public static Atlas instance;
 
@@ -15,6 +15,6 @@ public class Atlas : MonoBehaviour
 
     public void AddRoom(Room room)
     {
-        _roomsExplored.Add(room);
+        _roomsExplored.Add(room.Coordinates, room);
     }
 }
